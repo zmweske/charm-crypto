@@ -36,18 +36,79 @@ If you're using Charm to implement schemes, we want to know what your experience
 
 Quick Install & Test
 ====================
-Installing Charm from source is straightforward. First, verify that you have installed the following dependencies:
-* [GMP 5.x](http://gmplib.org/)
-* [PBC](http://crypto.stanford.edu/pbc/download.html) 
-* [OPENSSL](http://www.openssl.org/source/)
+### Ubuntu 18.04
+These configurations were tested on Ubuntu 18.04:
+```
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install -y flex
+sudo apt-get install -y bison
+sudo apt-get install -y byacc
+sudo apt-get install -y libssl-dev
+sudo apt install git
+sudo apt install python3-dev
+sudo apt install make
+sudo apt install libgmp-dev
+sudo apt install python-pip3
 
-After that, you may proceed to install a basic configuration of Charm as follows:
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
 
-* `./configure.sh` (include `--enable-darwin` if running Mac OS X)
-* `make install` (may require super-user privileges)
-* `make test` (may also require super-user privileges)
+git clone https://github.com/JHUISI/charm.git
+cd charm
+
+pip3 install -r requirements.txt
+pip3 install setuptools
+
+sudo ./configure.sh
+cd ./deps/pbc && make && sudo ldconfig && cd -
+make
+sudo make install && sudo ldconfig
+sudo make test
+```
 
 If most (or all) Python tests pass, then the Charm installation was successful. Enjoy!
+
+### Ubuntu 20.04
+If you are running Ubuntu 20.04, you can run these commands, which are tried by another student at different time, but it is not verified by me:
+```
+sudo apt update
+sudo apt upgrade 
+sudo apt-get install gcc
+sudo apt-get install make
+sudo apt-get install zlib1g-dev
+sudo apt-get install libreadline-gplv2-dev libncursesw5-dev libssl-dev 
+libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev
+sudo apt -y install libssl-dev zlib1g-dev build-essential
+sudo apt-get install -y libgmp10 libgmp-dev
+sudo apt-get install -y openssl
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install python3.7 python3.7-dev
+sudo apt install virtualenv
+virtualenv -p /usr/bin/python3.7 py37
+source py37/bin/activate
+sudo apt-get install -y libgmp10 libgmp-dev python3-dev
+sudo apt-get install -y openssl
+sudo apt install -y git
+git clone https://github.com/JHUISI/charm
+cd charm
+pip install -r requirements.txt
+./configure.sh
+cd ./deps/pbc
+sudo apt-get install flex
+sudo apt-get install bison
+make
+sudo ldconfig
+cd -
+make
+make test
+pip3 install -U setuptools
+pip install ujson
+make install
+sudo ldconfig
+make test
+```
 
 Licensing
 =========
