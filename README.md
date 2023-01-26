@@ -20,13 +20,13 @@ Features of Charm include:
 
 Documentation
 =============
-For complete install, see our [documentation](https://jhuisi.github.io/charm/install_source.html). 
+**For complete install, see our [documentation](https://jhuisi.github.io/charm/install_source.html). 
 
 Pull Requests
 =============
 
 We welcome and encourage scheme contributions. If you'd like your scheme implementation included in the Charm distribution, please note a few things.
-Schemes in the dev branch are Python 3.x only and ones in the 2.7-dev branch are Python 2.x. For your scheme to be included in unit tests (`make test`), you must include a doctest at a minimum (see schemes in the charm/schemes directory). 
+Schemes in the dev branch are Python 3.x only** and ones in the 2.7-dev branch are Python 2.x. For your scheme to be included in unit tests (`make test`), you must include a doctest at a minimum (see schemes in the charm/schemes directory). 
 
 Schemes
 =======
@@ -69,6 +69,9 @@ sudo make test
 
 If most (or all) Python tests pass, then the Charm installation was successful. Enjoy!
 
+The expected output is shown in the screenshot below:
+![img.png](doc/images/test_make_screen_shot.png)
+
 ### Ubuntu 20.04
 If you are running Ubuntu 20.04, you can run these commands, which are tried by another student at different time, but it is not verified by me:
 ```
@@ -110,6 +113,9 @@ sudo ldconfig
 make test
 ```
 
+### Testing ABE Code
+Run the python file: `charm\schemes\abenc\abenc_bsw07.py` and the expected program should run successfully. The expected output is shown in the screenshot below
+![img.png](doc/images/test_cp_abe_bsw07_screenshot.png)
 Licensing
 =========
 
