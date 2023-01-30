@@ -45,11 +45,11 @@ sudo apt-get install -y flex
 sudo apt-get install -y bison
 sudo apt-get install -y byacc
 sudo apt-get install -y libssl-dev
-sudo apt install git
-sudo apt install python3-dev
-sudo apt install make
-sudo apt install libgmp-dev
-sudo apt install python-pip3
+sudo apt install -y git
+sudo apt install -y python3-dev
+sudo apt install -y make
+sudo apt install -y libgmp-dev
+sudo apt install -y python3-pip
 
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
@@ -74,6 +74,7 @@ The expected output is shown in the screenshot below:
 
 ### Ubuntu 20.04
 If you are running Ubuntu 20.04, you can run these commands, which are tried by another student at different time, but it is not verified by me:
+
 ```
 sudo apt update
 sudo apt upgrade 
@@ -114,8 +115,11 @@ make test
 ```
 
 ### Testing ABE Code
-Run the python file: `charm\schemes\abenc\abenc_bsw07.py` and the expected program should run successfully. The expected output is shown in the screenshot below
+
+Run the python file: `python3 charm\schemes\abenc\abenc_bsw07.py` and the expected program should run successfully. The expected output is shown in the screenshot below:
+
 ![img.png](doc/images/test_cp_abe_bsw07_screenshot.png)
+
 Licensing
 =========
 

@@ -4,6 +4,7 @@ MANIFEST
 log.txt
 dist/
 build/
+deps/
 doc/build/*
 charm/config.py
 .cache/
