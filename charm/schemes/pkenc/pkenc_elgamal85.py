@@ -112,3 +112,20 @@ class ElGamal(PKEnc):
         if debug: print('m => %s' % m)
         if debug: print('dec M => %s' % M)
         return M
+
+if __name__ == "__main__":
+    from charm.toolbox.eccurve import prime192v2
+    from charm.toolbox.ecgroup import ECGroup
+    groupObj = ECGroup(prime192v2)
+    el = ElGamal(groupObj)
+    (public_key, secret_key) = el.keygen()
+    msg = b"hello world!12345678"
+    print("Plain message: ", msg)
+    print("-----------------------------------------------------------")
+    cipher_text = el.encrypt(public_key, msg)
+    print("Cipher message: ", cipher_text)
+    print("-----------------------------------------------------------")
+    decrypted_msg = el.decrypt(public_key, secret_key, cipher_text)
+    print("Decrypted message: ", decrypted_msg)
+    print("-----------------------------------------------------------")
+    print("Is Decrypted Message similar to the plain text? ", decrypted_msg == msg)
