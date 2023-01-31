@@ -145,6 +145,8 @@ class RSA_Sig(RSA, PKSig):
         return self.paddingscheme.verify(M, EM, modbits-1)
 
 def RSA_enc_test():
+    print("Running RSA Encryption Test")
+    print("------------------------------------------------------------")
     rsa = RSA_Enc()
     (public_key, secret_key) = rsa.keygen(1024)
     msg = b'This is a test'
@@ -159,11 +161,17 @@ def RSA_enc_test():
     print("Boolean Comparison output:", decrypted_msg == msg)
 
 def RSA_sig_test():
+    print("Running RSA Signature Test")
+    print("------------------------------------------------------------")
     msg = b'This is a test message.'
+    print("Message: ", msg)
+    print("------------------------------------------------------------")
     rsa = RSA_Sig()
     (public_key, secret_key) = rsa.keygen(1024)
     signature = rsa.sign(secret_key, msg)
-    rsa.verify(public_key, msg, signature)
+    print("Signature: ", signature)
+    print("------------------------------------------------------------")
+    print("Verification output: ", rsa.verify(public_key, msg, signature))
         
 if __name__ == "__main__":
     RSA_enc_test()
