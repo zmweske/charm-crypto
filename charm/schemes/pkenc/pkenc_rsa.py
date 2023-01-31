@@ -143,6 +143,28 @@ class RSA_Sig(RSA, PKSig):
             print("em      =>", EM)
             print("S     =>", S)
         return self.paddingscheme.verify(M, EM, modbits-1)
+
+def RSA_enc_test():
+    rsa = RSA_Enc()
+    (public_key, secret_key) = rsa.keygen(1024)
+    msg = b'This is a test'
+    print("Plain text: ", msg)
+    print("------------------------------------------------------------")
+    cipher_text = rsa.encrypt(public_key, msg)
+    print("Cipher Text: ", cipher_text)
+    print("------------------------------------------------------------")
+    decrypted_msg = rsa.decrypt(public_key, secret_key, cipher_text)
+    print("Decrypted Text: ", decrypted_msg)
+    print("------------------------------------------------------------")
+    print("Boolean Comparison output:", decrypted_msg == msg)
+
+def RSA_sig_test():
+    msg = b'This is a test message.'
+    rsa = RSA_Sig()
+    (public_key, secret_key) = rsa.keygen(1024)
+    signature = rsa.sign(secret_key, msg)
+    rsa.verify(public_key, msg, signature)
         
-    
-    
+if __name__ == "__main__":
+    RSA_enc_test()
+    #RSA_sig_test()
