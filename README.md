@@ -112,6 +112,10 @@ pip install ujson
 make install
 sudo ldconfig
 make test
+
+# run to auto-enter charm directory and activate py37 virtualenv
+echo "source ~/py37/bin/activate" >> ~/.bashrc
+echo "cd ~/charm" >> ~/.bashrc
 ```
 
 ### Testing ABE Code
