@@ -72,8 +72,8 @@ If most (or all) Python tests pass, then the Charm installation was successful. 
 The expected output is shown in the screenshot below:
 ![img.png](doc/images/test_make_screen_shot.png)
 
-### Ubuntu 20.04
-If you are running Ubuntu 20.04, you can run these commands, which are tried by another student at different time, but it is not verified by me:
+### Ubuntu 20.04 & 22.04
+If you are running Ubuntu 20.04 or 22.04, you can run these commands, which are tried by another student at different time, but it is not verified by me:
 
 ```
 sudo apt update
@@ -88,7 +88,7 @@ sudo apt-get install -y libgmp10 libgmp-dev
 sudo apt-get install -y openssl
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt update
-sudo apt install python3.7 python3.7-dev
+sudo apt install python3.7 python3.7-dev python3.7-distutils
 sudo apt install virtualenv
 virtualenv -p /usr/bin/python3.7 py37
 source py37/bin/activate
